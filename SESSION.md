@@ -8,7 +8,7 @@ them accumulate.
 
 ## Last updated
 
-2026-08-29
+2026-08-30
 
 ## Current status
 
@@ -19,8 +19,18 @@ Verified interactively in a real browser (search → select → chart nav,
 direct `/chart/AAPL`, theme toggle, the Daily Market Overview report,
 Compare, Watchlists, Settings, responsive down to tablet width).
 
-**Nothing is committed to git yet.** Repo started with zero commits on
-branch `init-buildout`; everything built this session is untracked.
+**Committed and open for review**: all work is on branch `init-buildout`
+(pushed to `origin`), with an empty `main` branch created as the repo's
+default and **PR #1** open (`init-buildout` → `main`):
+https://github.com/hegarty/market-intelligence-frontend/pull/1
+
+Note for history: `init-buildout`'s implementation commit was rebased onto
+`main`'s empty root commit and force-pushed (content verified
+byte-identical via `git diff --stat` before the force-push) so GitHub would
+allow a PR between the two — it originally had no commit history at all,
+so its first commit had no parent and couldn't share history with a
+separately-created empty `main`. No content was lost; this is just a note
+in case the SHA on `origin/init-buildout` looks unfamiliar.
 
 ## What's implemented
 
@@ -95,8 +105,10 @@ npm run test:e2e
 
 ## Not done / possible next steps
 
-- Nothing committed to git yet — worth doing as an early step next session
-  (ask before pushing anywhere, per standing git-safety norms).
+- PR #1 (`init-buildout` → `main`) is open, awaiting review/merge.
+- Consider setting up branch protection + required signed commits on `main`
+  once merged (discussed this session — free on this repo since it's
+  public; repo Settings → Branches).
 - Watchlists is functional but minimal: a single default list, no
   multi-list support.
 - No real Market Platform API integration — mock provider only. Swap point
